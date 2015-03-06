@@ -1,0 +1,92 @@
+<head>
+  <title>dock</title>
+</head>
+
+<body>
+  <h1>Welcome to Meteor!</h1>
+
+  {{> hello}}
+
+  <h2 align="center">Mac OSX Dock CSS/HTML Only Emulator</h2>
+  {{> dock}}
+
+  {{> modaldialog}}
+
+</body>
+
+<template name="hello">
+  <button>Click Me</button>
+  <p>You've pressed the button {{counter}} times.</p>
+</template>
+
+<template name="dock">
+  <div class="dock-wrapper">
+      <div class="dock">
+              <div class="app" id="1" data-id="1">
+                  <div class="top"></div>
+                  <div class="bottom-wrapper">
+                      <div class="bottom"></div>
+                  </div>
+              </div>
+              <div class="app" id="2" data-id="2">
+                  <div class="top"></div>
+                  <div class="bottom-wrapper">
+                      <div class="bottom"></div>
+                  </div>
+              </div>
+              <div class="app" id="3" data-id="3">
+                  <div class="top"></div>
+                  <div class="bottom-wrapper">
+                      <div class="bottom"></div>
+                  </div>
+              </div>
+              <div class="app" id="4" data-id="4">
+                  <div class="top"></div>
+                  <div class="bottom-wrapper">
+                      <div class="bottom"></div>
+                  </div>
+              </div>
+              <div class="app" id="5" data-id="5">
+                  <div class="top"></div>
+                  <div class="bottom-wrapper">
+                      <div class="bottom"></div>
+                  </div>
+              </div>
+              <div class="app" id="6" data-id="6">
+                  <div class="top"></div>
+                  <div class="bottom-wrapper">
+                      <div class="bottom"></div>
+                  </div>
+              </div>
+      </div>
+      <div class="dock-shelf-wrapper">
+        <div class="dock-shelf"></div>
+      </div>
+  </div>
+
+  <h2 align="center">You clicked Dragon {{dragon}}</h2>
+
+</template>
+
+<template name="modaldialog">
+  <div style="text-align:center">
+    <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#modaldragon">Where be Dragons?</button>
+  </div>
+
+  <div class="modal fade" id="modaldragon" tabindex="-1" role="dialog" aria-labelledby="Modal Dragon" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+          <h4 class="modal-title" id="myModalLabel">Here are Dragons!</h4>
+        </div>
+        <div class="modal-body">
+          {{> dock}}
+        </div>
+        <div class="modal-footer">
+          <button id="dragonexit" type="button" class="btn btn-default" data-dismiss="modal">Run!</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>

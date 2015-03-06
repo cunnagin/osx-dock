@@ -1,0 +1,113 @@
+/* CSS declarations go here */
+
+$APP_ICON_NUMBER:6;
+$APP_ICON_SIZE:64px;
+$APP_ICON_MARGIN:0.025*$APP_ICON_SIZE;
+$APP_ICON_ZOOM:2;
+$DOCK_REACTION_SPEED:0.2s;
+$DOCK_SHELF_COLOR:#dddddd;
+
+@mixin ALL-transform($X) {
+  -webkit-transform:$X;
+  -ms-transform:$X;
+  transform:$X;
+}
+
+div.dock-wrapper {
+  width:100%;
+  /* border:dashed 2px; */
+}
+
+div.dock {
+  position:relative;
+  display:table;
+  margin:0 auto;
+  transform-origin: 0% 100%;
+  @include ALL-transform(translateX(0px));
+  transition: transform (2.5*$DOCK_REACTION_SPEED) ease-out;
+  z-index:2;
+
+  /* border:solid 1px; */
+
+  &:hover .app {
+    transform-origin: 50% 100%;
+    @include ALL-transform(translateX(-0.5*$APP_ICON_SIZE));
+    transition: transform $DOCK_REACTION_SPEED ease-in;
+  }
+
+  & > .app {
+    display:block;
+    position:relative;
+    float:left;
+    width:$APP_ICON_SIZE;
+    height:$APP_ICON_SIZE;
+    /* background-color:#ff00ff; */
+    background-image:url('webdragon-icon.png');
+    margin:$APP_ICON_MARGIN;
+    transform-origin: 50% 100%;
+    @include ALL-transform(scale(1) translateY(0px));
+    transition: transform $DOCK_REACTION_SPEED ease-out;
+  }
+
+  & > .app:first-child {
+    margin-left:0px;
+  }
+
+  & > .app:last-child {
+    margin-right:0px;
+  }
+
+  & > .app:hover {
+    cursor:pointer;
+    transform-origin: 50% 100%;
+    @include ALL-transform(scale($APP_ICON_ZOOM) translateY(-0.12*$APP_ICON_SIZE));
+    transition: transform $DOCK_REACTION_SPEED ease-in;
+  }
+
+  & > .app:hover ~ .app {
+    transform-origin: 50% 100%;
+    @include ALL-transform(translateX(0.5*$APP_ICON_SIZE));
+    transition: transform $DOCK_REACTION_SPEED ease-out;
+  }
+
+  & > .app > .bottom-wrapper {
+    perspective:100px;
+  }
+
+  & > .app > .bottom-wrapper > .bottom {
+    display:table;
+    position:relative;
+    float:left;
+    top:0px;
+    width:$APP_ICON_SIZE;
+    height:$APP_ICON_SIZE;
+
+    /* background: -webkit-linear-gradient(top,rgba($DOCK_SHELF_COLOR,1),rgba($DOCK_SHELF_COLOR,0)), url('webdragon-icon.png');
+    background: linear-gradient(to bottom,rgba($DOCK_SHELF_COLOR,1),rgba($DOCK_SHELF_COLOR,0)), url('webdragon-icon.png');
+    */
+    opacity:0.6;
+    background:url('webdragon-icon.png');
+    transform-origin: 50% 100%;
+    @include ALL-transform(scale(1) rotateX(298deg));
+  }
+
+}
+
+div.dock-shelf-wrapper {
+  perspective:100px;
+  z-index:-3;
+}
+
+div.dock-shelf {
+  display:block;
+  position:relative;
+  top:-(0.13*$APP_ICON_SIZE+0.35*$APP_ICON_SIZE);
+  margin:0 auto;
+  width:(1.4*$APP_ICON_NUMBER*$APP_ICON_SIZE);
+  height:(0.7*$APP_ICON_SIZE);
+  background:$DOCK_SHELF_COLOR;
+  transform-origin: 50% 100%;
+  @include ALL-transform(rotateX(30deg));
+  z-index:-2;
+  border:solid 1px (0.5*$DOCK_SHELF_COLOR);
+}

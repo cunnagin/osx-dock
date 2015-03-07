@@ -52,12 +52,12 @@ div.dock {
 }
 ```
 
-You'll have to take care of this by pulling it out of the CSS and placing it back in the HTML code, referencing it by the id or data-id parameters OR better yet, use the nth child selector in your CSS code:
+You'll have to take care of this by pulling it out of the CSS and placing it back in the HTML code, referencing it by the id or data-id parameters OR better yet, use the nth-of-type selector in your CSS code:
 
 ```CSS
-& > .app:nth-last-child(2) {
+& > .app:nth-of-type(2) {
   background: url('kitchen-sink.png');
 }
 ```
 
-The former will let you create dock elements dynamically as you need them; the latter if you have a fixed set ahead of time.
+The former will let you create dock elements dynamically as you need them; the latter if you have a fixed dock layout ahead of time.

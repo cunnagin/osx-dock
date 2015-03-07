@@ -1,6 +1,8 @@
 # osx-dock
 OS X like dock implemented in CSS only. This example is written as a Meteor project.
 
+![screen shot 2015-03-06 at 6 50 46 pm](https://cloud.githubusercontent.com/assets/7061547/6538999/ed9806fa-c437-11e4-98b8-e8ff7f9855f4.png)
+
 ## What it is...
 This is a demo of an OSX dock using the magnification effect. I didn't see a whole lot of great examples - a few using javascript, etc... but I wanted to use CSS animations only. It's my first take on it, so it's not refined and I'm sure it can be simplified and improved.
 

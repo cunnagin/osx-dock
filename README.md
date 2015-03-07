@@ -1,5 +1,5 @@
 # osx-dock
-OS X like dock implemented in CSS only. This example is written as a Meteor project.
+OS X like dock implemented in CSS only. This example is written as a Meteor project. It's based on my prototype [jsfiddle](https://jsfiddle.net/cunnagin/p4n0o49q/59/).
 
 ![screen shot 2015-03-06 at 6 50 46 pm](https://cloud.githubusercontent.com/assets/7061547/6538999/ed9806fa-c437-11e4-98b8-e8ff7f9855f4.png)
 

@@ -29,3 +29,4 @@ Dock elements are added in HTML (in the 'dock' template) as follows:
       </div>
   </div>
   ```
+All the work happens in the `dock.scss` file. This is written using SASS.

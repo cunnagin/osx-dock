@@ -22,13 +22,42 @@ Dock elements are added in HTML (in the 'dock' template) as follows:
                   </div>
               </div>
               <div class="app" id="2" data-id="2">
-                    ---
+                    ...
               </div>
-              ---
+              ...
       </div>
       <div class="dock-shelf-wrapper">
         <div class="dock-shelf"></div>                    <--- This is the shelf that everything sits on
       </div>
   </div>
   ```
-All the work happens in the `dock.scss` file. This is written using SASS.
+All the work happens in the SASS file `dock.scss` file.
+
+The same image is used for all the dock items; it's loaded in 2 locations in the CSS file:
+
+```CSS
+div.dock {
+...
+  & > .app {
+    ...
+    background-image:url('webdragon-icon.png');
+    ...
+  }
+
+  & > .app > .bottom-wrapper > .bottom {
+    ...
+    background:url('webdragon-icon.png');
+    ...
+  }
+}
+```
+
+You'll have to take care of this by pulling it out of the CSS and placing it back in the HTML code, referencing it by the id or data-id parameters OR better yet, use the nth child selector in your CSS code:
+
+```CSS
+& > .app:nth-last-child(2) {
+  background: url('kitchen-sink.png');
+}
+```
+
+The former will let you create dock elements dynamically as you need them; the latter if you have a fixed set ahead of time.
